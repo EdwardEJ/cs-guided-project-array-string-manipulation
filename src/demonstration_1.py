@@ -22,4 +22,16 @@ There is no index that satisfies the conditions in the problem statement.
 """
 def pivot_index(nums):
     # Your code here
-
+    # use two-pointer technique to keep track of left and right side of array
+    left = 0
+    right = sum(nums)
+    for i, num in enumerate(nums):
+        right -= num
+        print('right', right)
+        if left == right:
+            return i
+        left += num
+        print('left', left)
+    return - 1
+    
+print(pivot_index([1,7,3,6,5,6]))
